@@ -20,8 +20,8 @@
 
             // Stop at the floor first if it is in the queue
             if (positionInQueue != -1) { 
-                //remove one floor from position in queue
-                elevator.destinationQueue.splice(positionInQueue, 1);
+                //filter through queue, if floor already exists, remove any duplicates
+                elevator.destinationQueue = elevator.destinationQueue.filter(floor => floor !== floorNum);
                 elevator.checkDestinationQueue();
                 elevator.goToFloor(floorNum, true); 
             }
